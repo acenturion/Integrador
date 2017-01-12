@@ -1,5 +1,10 @@
 package integrador.curso.java.gui;
 
+import integrador.curso.java.connector.Table;
+import integrador.curso.java.util.Box;
+import integrador.curso.java.util.SwingTable;
+import integrador.curso.java.util.Validator;
+
 public class VentanaClientes extends javax.swing.JInternalFrame {
 
     public VentanaClientes() {
@@ -11,8 +16,23 @@ public class VentanaClientes extends javax.swing.JInternalFrame {
                 true // Minimizable
         );
         initComponents();
+        cargar();
     }
-
+    public void cargar(){
+        //carga tabla Clientes
+        SwingTable.cargar(Table.select("clientes"), tblClientes);
+    }
+        
+    public boolean validar(){
+        //Falta completar las validaciones :c
+        // Validar txtNombre tenga entre 2 y 20 letras
+        if(!new Validator(txtNombre,"nombre").size(2, 20)) return false;
+        // Validar txtApellido entre 2 y 20 letras
+        if(!new Validator(txtApellido, "apellido").size(2, 20)) return false;
+        return true;
+    }
+        
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -30,10 +50,10 @@ public class VentanaClientes extends javax.swing.JInternalFrame {
         jLabel7 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblClientes = new javax.swing.JTable();
-        btnSalir = new javax.swing.JToggleButton();
-        btnCargar = new javax.swing.JToggleButton();
-        btnBorrar = new javax.swing.JToggleButton();
-        jToggleButton4 = new javax.swing.JToggleButton();
+        btnFacturasCliente = new javax.swing.JButton();
+        btnModificarCliente = new javax.swing.JButton();
+        btnLimpiar = new javax.swing.JButton();
+        btnCargar = new javax.swing.JButton();
 
         txtNacimiento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,18 +87,23 @@ public class VentanaClientes extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(tblClientes);
 
-        btnSalir.setText("Salir");
+        btnFacturasCliente.setText("Facturas");
 
-        btnCargar.setText("Cargar");
+        btnModificarCliente.setText("Modificar");
 
-        btnBorrar.setText("Borrar");
-        btnBorrar.addActionListener(new java.awt.event.ActionListener() {
+        btnLimpiar.setText("Limpiar");
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBorrarActionPerformed(evt);
+                btnLimpiarActionPerformed(evt);
             }
         });
 
-        jToggleButton4.setText("-");
+        btnCargar.setText("Cargar");
+        btnCargar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCargarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -88,17 +113,8 @@ public class VentanaClientes extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(217, 217, 217)
+                        .addGap(222, 222, 222)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(138, 138, 138)
-                        .addComponent(btnSalir)
-                        .addGap(27, 27, 27)
-                        .addComponent(btnCargar)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnBorrar)
-                        .addGap(18, 18, 18)
-                        .addComponent(jToggleButton4))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(50, 50, 50)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -113,7 +129,16 @@ public class VentanaClientes extends javax.swing.JInternalFrame {
                             .addComponent(txtNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtCuit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(104, 104, 104)
+                        .addComponent(btnCargar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnLimpiar)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnModificarCliente)
+                        .addGap(10, 10, 10)
+                        .addComponent(btnFacturasCliente)))
                 .addContainerGap(60, Short.MAX_VALUE))
         );
 
@@ -124,7 +149,7 @@ public class VentanaClientes extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel3)
-                .addGap(37, 37, 37)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
@@ -144,13 +169,13 @@ public class VentanaClientes extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCuit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSalir)
-                    .addComponent(btnCargar)
-                    .addComponent(btnBorrar)
-                    .addComponent(jToggleButton4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(btnFacturasCliente)
+                    .addComponent(btnModificarCliente)
+                    .addComponent(btnLimpiar)
+                    .addComponent(btnCargar))
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -161,24 +186,37 @@ public class VentanaClientes extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNacimientoActionPerformed
 
-    private void btnBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarActionPerformed
-        // Limpia los campos
-     
-       txtApellido.setText("");
-       txtDireccion.setText("");
-       txtNacimiento.setText("");
-       txtNombre.setText("");
-       txtCuit.setText("");
-       
-       txtNombre.requestFocus();
-        
-    }//GEN-LAST:event_btnBorrarActionPerformed
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+        // Limpia los campos 
+        txtApellido.setText("");
+        txtDireccion.setText("");
+        txtNacimiento.setText("");
+        txtNombre.setText("");
+        txtCuit.setText("");
+
+        txtNombre.requestFocus();
+
+    }//GEN-LAST:event_btnLimpiarActionPerformed
+
+    private void btnCargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarActionPerformed
+        // Cargar un cliente a la base
+        String fields = "nombre,apellido,nacimiento,direccion,cuit";
+        String values;
+
+        if (validar()) {
+            values = "'" + txtNombre.getText() + "', '" + txtApellido.getText() + "', '" + txtNacimiento.getText() + "', '" + txtDireccion.getText() + "', '" + txtCuit.getText() + "'";
+            int x = Table.insert("clientes", fields, values);
+            Box.msg(this, "Se ha insertado " + x + " registros.");
+        }
+        cargar();
+    }//GEN-LAST:event_btnCargarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JToggleButton btnBorrar;
-    private javax.swing.JToggleButton btnCargar;
-    private javax.swing.JToggleButton btnSalir;
+    private javax.swing.JButton btnCargar;
+    private javax.swing.JButton btnFacturasCliente;
+    private javax.swing.JButton btnLimpiar;
+    private javax.swing.JButton btnModificarCliente;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -186,7 +224,6 @@ public class VentanaClientes extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JToggleButton jToggleButton4;
     private javax.swing.JTable tblClientes;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtCuit;

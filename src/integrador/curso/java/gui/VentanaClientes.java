@@ -4,6 +4,7 @@ import integrador.curso.java.connector.Table;
 import integrador.curso.java.util.Box;
 import integrador.curso.java.util.SwingTable;
 import integrador.curso.java.util.Validator;
+import integrador.curso.java.util.Ventanas;
 
 public class VentanaClientes extends javax.swing.JInternalFrame {
 
@@ -31,7 +32,16 @@ public class VentanaClientes extends javax.swing.JInternalFrame {
         if(!new Validator(txtApellido, "apellido").size(2, 20)) return false;
         return true;
     }
-        
+    public void limpiar(){
+        //Funcion que limpia los campos
+        txtApellido.setText("");
+        txtDireccion.setText("");
+        txtNacimiento.setText("");
+        txtNombre.setText("");
+        txtCuit.setText("");
+
+        txtNombre.requestFocus();
+    }
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -54,6 +64,7 @@ public class VentanaClientes extends javax.swing.JInternalFrame {
         btnModificarCliente = new javax.swing.JButton();
         btnLimpiar = new javax.swing.JButton();
         btnCargar = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
 
         txtNacimiento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,6 +101,11 @@ public class VentanaClientes extends javax.swing.JInternalFrame {
         btnFacturasCliente.setText("Facturas");
 
         btnModificarCliente.setText("Modificar");
+        btnModificarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarClienteActionPerformed(evt);
+            }
+        });
 
         btnLimpiar.setText("Limpiar");
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -102,6 +118,13 @@ public class VentanaClientes extends javax.swing.JInternalFrame {
         btnCargar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCargarActionPerformed(evt);
+            }
+        });
+
+        btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
             }
         });
 
@@ -131,11 +154,13 @@ public class VentanaClientes extends javax.swing.JInternalFrame {
                             .addComponent(txtCuit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(104, 104, 104)
+                        .addGap(88, 88, 88)
+                        .addComponent(btnLimpiar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnCargar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnLimpiar)
-                        .addGap(18, 18, 18)
+                        .addComponent(btnEliminar)
+                        .addGap(10, 10, 10)
                         .addComponent(btnModificarCliente)
                         .addGap(10, 10, 10)
                         .addComponent(btnFacturasCliente)))
@@ -169,13 +194,14 @@ public class VentanaClientes extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCuit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnFacturasCliente)
                     .addComponent(btnModificarCliente)
                     .addComponent(btnLimpiar)
-                    .addComponent(btnCargar))
-                .addGap(18, 18, 18)
+                    .addComponent(btnCargar)
+                    .addComponent(btnEliminar))
+                .addGap(27, 27, 27)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -188,14 +214,7 @@ public class VentanaClientes extends javax.swing.JInternalFrame {
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
         // Limpia los campos 
-        txtApellido.setText("");
-        txtDireccion.setText("");
-        txtNacimiento.setText("");
-        txtNombre.setText("");
-        txtCuit.setText("");
-
-        txtNombre.requestFocus();
-
+        limpiar();
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void btnCargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarActionPerformed
@@ -209,11 +228,43 @@ public class VentanaClientes extends javax.swing.JInternalFrame {
             Box.msg(this, "Se ha insertado " + x + " registros.");
         }
         cargar();
+        limpiar();
     }//GEN-LAST:event_btnCargarActionPerformed
+
+    private void btnModificarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarClienteActionPerformed
+        //Modificar Cliente
+        String idCliente;
+        
+        if (tblClientes.getSelectedRow() != -1) {
+            idCliente= tblClientes.getValueAt(tblClientes.getSelectedRow(), 0)+"";
+            Ventanas.centrar(getDesktopPane(), new modificarCliente(idCliente,this));
+           
+        } else {
+            Box.error(this, "Seleccionar Cliente");
+        }
+
+    }//GEN-LAST:event_btnModificarClienteActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+         // Eliminar cliente
+        String filtro;
+        String nombreCliente;
+        try {
+            filtro = "id=" + tblClientes.getValueAt(tblClientes.getSelectedRow(), 0);
+            nombreCliente = tblClientes.getValueAt(tblClientes.getSelectedRow(), 1) + " " + tblClientes.getValueAt(tblClientes.getSelectedRow(), 2);
+            if (Box.question(this, "Esta seguro que desea borrar alumno " + nombreCliente + "?")) {
+                Table.delete("clientes", filtro);
+                cargar();
+            }
+
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCargar;
+    private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnFacturasCliente;
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnModificarCliente;

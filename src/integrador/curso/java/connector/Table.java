@@ -29,6 +29,7 @@ public class Table {
      * @param query consulta que va a ser ejecutada
      */
     public static void execute(String query){
+        //Se podria borrar, pero se deja para tener constancia de lo que se agrego! :D
         connect();
         X.title("Query");
         X.print(query);

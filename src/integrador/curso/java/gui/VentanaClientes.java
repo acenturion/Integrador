@@ -99,6 +99,11 @@ public class VentanaClientes extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(tblClientes);
 
         btnFacturasCliente.setText("Facturas");
+        btnFacturasCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFacturasClienteActionPerformed(evt);
+            }
+        });
 
         btnModificarCliente.setText("Modificar");
         btnModificarCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -260,6 +265,21 @@ public class VentanaClientes extends javax.swing.JInternalFrame {
         } catch (Exception e) {
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void btnFacturasClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacturasClienteActionPerformed
+        //Abre la ventana factura por cliente
+        
+        String idCliente;
+        
+        if (tblClientes.getSelectedRow() != -1) {
+            idCliente= tblClientes.getValueAt(tblClientes.getSelectedRow(), 0)+"";
+            Ventanas.centrar(getDesktopPane(), new ventanaFacturas(idCliente,this));;
+        } else {
+            Box.error(this, "Seleccionar Cliente");
+        }
+
+        
+    }//GEN-LAST:event_btnFacturasClienteActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -2,8 +2,10 @@
 package integrador.curso.java.gui;
 
 import integrador.curso.java.connector.Table;
+import integrador.curso.java.util.Box;
 import integrador.curso.java.util.Log;
 import integrador.curso.java.util.SwingTable;
+import integrador.curso.java.util.Ventanas;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -47,7 +49,10 @@ public class ventanaFacturas extends javax.swing.JInternalFrame {
             Log.set(e);
         }
     }
-
+    
+    public boolean validar(){
+        return true;
+    }
   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -59,9 +64,9 @@ public class ventanaFacturas extends javax.swing.JInternalFrame {
         jLabel8 = new javax.swing.JLabel();
         txtApellido = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnBorrar = new javax.swing.JButton();
+        btnAgregar = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblFacturas = new javax.swing.JTable();
         txtId = new javax.swing.JTextField();
@@ -80,11 +85,26 @@ public class ventanaFacturas extends javax.swing.JInternalFrame {
 
         jLabel9.setText("Datos del cliente:");
 
-        jButton1.setText("Borrar");
+        btnBorrar.setText("Borrar");
+        btnBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBorrarActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Agregar");
+        btnAgregar.setText("Agregar");
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("Salir");
+        btnSalir.setText("Salir");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
 
         tblFacturas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -118,11 +138,11 @@ public class ventanaFacturas extends javax.swing.JInternalFrame {
                         .addComponent(jLabel9))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(183, 183, 183)
-                        .addComponent(jButton1)
+                        .addComponent(btnBorrar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2)
+                        .addComponent(btnAgregar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3)))
+                        .addComponent(btnSalir)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -157,9 +177,9 @@ public class ventanaFacturas extends javax.swing.JInternalFrame {
                     .addComponent(jLabel10))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
+                    .addComponent(btnBorrar)
+                    .addComponent(btnAgregar)
+                    .addComponent(btnSalir))
                 .addGap(27, 27, 27)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -167,11 +187,39 @@ public class ventanaFacturas extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+        //abre ventana cargar facturas
+    
+      
+    }//GEN-LAST:event_btnAgregarActionPerformed
+
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        //Cierra ventana 
+        this.setVisible(false);
+    }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void btnBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarActionPerformed
+      //Borra la factura
+      //Posiblemente haya que hacer un filtro que elimine por numero y idcliente!
+        String filtro;
+        String factura;
+        try {
+            filtro = "numero=" + tblFacturas.getValueAt(tblFacturas.getSelectedRow(), 0);
+            factura = tblFacturas.getValueAt(tblFacturas.getSelectedRow(), 1) + " " + tblFacturas.getValueAt(tblFacturas.getSelectedRow(), 2);
+            if (Box.question(this, "Esta seguro que desea borrar la factura " + factura + "?")) {
+                Table.delete("facturas", filtro);
+                cargar();
+            }
+        } catch (Exception e) {
+        }
+      
+    }//GEN-LAST:event_btnBorrarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btnAgregar;
+    private javax.swing.JButton btnBorrar;
+    private javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel7;

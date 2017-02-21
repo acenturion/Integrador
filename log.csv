@@ -24,3 +24,10 @@ Wed Jan 18 15:29:17 ART 2017;AlejandroThalam/192.168.0.48;AlejandroThalamus;java
 Wed Jan 18 15:52:02 ART 2017;AlejandroThalam/192.168.0.48;AlejandroThalamus;com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '1 where TRUE' at line 1
 Wed Jan 18 15:52:03 ART 2017;AlejandroThalam/192.168.0.48;AlejandroThalamus;java.lang.NullPointerException
 Wed Jan 18 16:02:47 ART 2017;AlejandroThalam/192.168.0.48;AlejandroThalamus;java.sql.SQLException: Column 'facturas' not found.
+Thu Jan 19 10:37:58 ART 2017;AlejandroThalam/192.168.0.10;AlejandroThalamus;com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+Thu Jan 19 10:38:21 ART 2017;AlejandroThalam/192.168.0.10;AlejandroThalamus;java.lang.NullPointerException
+Thu Jan 19 10:38:21 ART 2017;AlejandroThalam/192.168.0.10;AlejandroThalamus;java.lang.NullPointerException
+Thu Jan 19 12:37:17 ART 2017;AlejandroThalam/192.168.0.10;AlejandroThalamus;com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'integrador.clientes' doesn't exist
+Thu Jan 19 12:37:19 ART 2017;AlejandroThalam/192.168.0.10;AlejandroThalamus;java.lang.NullPointerException

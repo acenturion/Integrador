@@ -257,7 +257,7 @@ public class VentanaClientes extends javax.swing.JInternalFrame {
         try {
             filtro = "id=" + tblClientes.getValueAt(tblClientes.getSelectedRow(), 0);
             nombreCliente = tblClientes.getValueAt(tblClientes.getSelectedRow(), 1) + " " + tblClientes.getValueAt(tblClientes.getSelectedRow(), 2);
-            if (Box.question(this, "Esta seguro que desea borrar alumno " + nombreCliente + "?")) {
+            if (Box.question(this, "Esta seguro que desea borrar cliente " + nombreCliente + "?")) {
                 Table.delete("clientes", filtro);
                 cargar();
             }

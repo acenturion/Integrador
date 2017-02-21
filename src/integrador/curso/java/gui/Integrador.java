@@ -29,6 +29,7 @@ public class Integrador extends javax.swing.JFrame {
         Desktop = new javax.swing.JDesktopPane();
         btnSalir = new javax.swing.JButton();
         btnClientes = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -49,8 +50,16 @@ public class Integrador extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Articulos");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         Desktop.setLayer(btnSalir, javax.swing.JLayeredPane.DEFAULT_LAYER);
         Desktop.setLayer(btnClientes, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Desktop.setLayer(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout DesktopLayout = new javax.swing.GroupLayout(Desktop);
         Desktop.setLayout(DesktopLayout);
@@ -59,18 +68,24 @@ public class Integrador extends javax.swing.JFrame {
             .addGroup(DesktopLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(DesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnClientes)
                     .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnClientes))
-                .addContainerGap(319, Short.MAX_VALUE))
+                    .addComponent(jButton1))
+                .addContainerGap(317, Short.MAX_VALUE))
         );
+
+        DesktopLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnClientes, btnSalir, jButton1});
+
         DesktopLayout.setVerticalGroup(
             DesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DesktopLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnClientes)
-                .addGap(4, 4, 4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnSalir)
-                .addContainerGap(218, Short.MAX_VALUE))
+                .addContainerGap(182, Short.MAX_VALUE))
         );
 
         jMenu1.setText("Inicio");
@@ -102,8 +117,14 @@ public class Integrador extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
+        //Abre clientes
         Ventanas.centrar(Desktop, new VentanaClientes());
     }//GEN-LAST:event_btnClientesActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       //Abre articulos
+       Ventanas.centrar(Desktop, new ventanaArticulos());
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -144,6 +165,7 @@ public class Integrador extends javax.swing.JFrame {
     private javax.swing.JDesktopPane Desktop;
     private javax.swing.JButton btnClientes;
     private javax.swing.JButton btnSalir;
+    private javax.swing.JButton jButton1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;

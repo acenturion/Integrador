@@ -38,3 +38,20 @@ insert into facturas values
 DELETE FROM facturas WHERE numero=1;
 
 select * from facturas where idCliente=1;
+
+select * from facturas;
+
+create table articulos(
+codigoBarra int(8) primary key,
+descripcion varchar(80),
+precio float(2),
+stock int,
+stockMin int,
+stockMax int
+);
+
+insert into articulos values
+(12345678,'Dulce de leche, con sabor a dulce de leche',35.50,20,5,60),
+(44445555,'Jabon de tocador, olor frutos del bosque',15.00,200,10,600);
+
+SELECT * FROM articulos;

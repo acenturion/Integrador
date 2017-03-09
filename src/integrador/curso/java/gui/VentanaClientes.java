@@ -30,6 +30,8 @@ public class VentanaClientes extends javax.swing.JInternalFrame {
         if(!new Validator(txtNombre,"nombre").size(2, 20)) return false;
         // Validar txtApellido entre 2 y 20 letras
         if(!new Validator(txtApellido, "apellido").size(2, 20)) return false;
+        //Validar txt Cuil 10 y 12 ??
+        if(!new Validator(txtCuit, "cuit").size(11, 11)) return false;
         return true;
     }
     public void limpiar(){
@@ -231,9 +233,10 @@ public class VentanaClientes extends javax.swing.JInternalFrame {
             values = "'" + txtNombre.getText() + "', '" + txtApellido.getText() + "', '" + txtNacimiento.getText() + "', '" + txtDireccion.getText() + "', '" + txtCuit.getText() + "'";
             int x = Table.insert("clientes", fields, values);
             Box.msg(this, "Se ha insertado " + x + " Clientes.");
+            limpiar();
         }
         cargar();
-        limpiar();
+        
     }//GEN-LAST:event_btnCargarActionPerformed
 
     private void btnModificarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarClienteActionPerformed

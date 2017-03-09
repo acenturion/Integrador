@@ -58,3 +58,14 @@ Sat Mar 04 21:35:36 ART 2017;minimal/127.0.1.1;minimal;com.mysql.jdbc.exceptions
 Sat Mar 04 21:35:36 ART 2017;minimal/127.0.1.1;minimal;com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column '44445asd' in 'where clause'
 Sat Mar 04 21:36:47 ART 2017;minimal/127.0.1.1;minimal;java.sql.SQLException: Data truncated for column 'stock' at row 1
 Sun Mar 05 13:44:55 ART 2017;minimal/127.0.1.1;minimal;java.sql.SQLException: Incorrect integer value: '' for column 'codigoBarra' at row 1
+Thu Mar 09 11:26:05 ART 2017;AlejandroThalam/192.168.0.16;AlejandroThalamus;java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)
+Thu Mar 09 11:26:06 ART 2017;AlejandroThalam/192.168.0.16;AlejandroThalamus;java.lang.NullPointerException
+Thu Mar 09 11:26:08 ART 2017;AlejandroThalam/192.168.0.16;AlejandroThalamus;java.lang.NullPointerException
+Thu Mar 09 11:31:37 ART 2017;AlejandroThalam/192.168.0.16;AlejandroThalamus;com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'integrador.clientes' doesn't exist
+Thu Mar 09 11:31:39 ART 2017;AlejandroThalam/192.168.0.16;AlejandroThalamus;java.lang.NullPointerException
+Thu Mar 09 12:02:02 ART 2017;AlejandroThalam/192.168.0.16;AlejandroThalamus;java.sql.SQLException: Column 'stockMin' not found.
+Thu Mar 09 12:02:10 ART 2017;AlejandroThalam/192.168.0.16;AlejandroThalamus;com.mysql.jdbc.MysqlDataTruncation: Data truncation: Incorrect integer value: '' for column 'codigoBarra' at row 1
+Thu Mar 09 12:15:11 ART 2017;AlejandroThalam/192.168.0.16;AlejandroThalamus;com.mysql.jdbc.MysqlDataTruncation: Data truncation: Incorrect integer value: '' for column 'codigoBarra' at row 1
+Thu Mar 09 12:15:25 ART 2017;AlejandroThalam/192.168.0.16;AlejandroThalamus;com.mysql.jdbc.MysqlDataTruncation: Data truncation: Incorrect integer value: 'Juan' for column 'stock' at row 1
+Thu Mar 09 12:17:27 ART 2017;AlejandroThalam/192.168.0.16;AlejandroThalamus;com.mysql.jdbc.MysqlDataTruncation: Data truncation: Incorrect integer value: '' for column 'codigoBarra' at row 1
+Thu Mar 09 12:18:54 ART 2017;AlejandroThalam/192.168.0.16;AlejandroThalamus;com.mysql.jdbc.MysqlDataTruncation: Data truncation: Incorrect integer value: '' for column 'codigoBarra' at row 1

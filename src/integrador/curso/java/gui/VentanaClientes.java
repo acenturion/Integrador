@@ -276,7 +276,7 @@ public class VentanaClientes extends javax.swing.JInternalFrame {
         
         if (tblClientes.getSelectedRow() != -1) {
             idCliente= tblClientes.getValueAt(tblClientes.getSelectedRow(), 0)+"";
-            Ventanas.centrar(getDesktopPane(), new ventanaFacturas(idCliente,this));;
+            Ventanas.centrar(getDesktopPane(), new ventanaFacturaDetalles(idCliente,this));;
         } else {
             Box.error(this, "Seleccionar Cliente");
         }

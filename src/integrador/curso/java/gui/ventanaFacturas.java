@@ -71,6 +71,7 @@ public class ventanaFacturas extends javax.swing.JInternalFrame {
         tblFacturas = new javax.swing.JTable();
         txtId = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
+        txtDetalle = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("Facturas");
@@ -123,6 +124,13 @@ public class ventanaFacturas extends javax.swing.JInternalFrame {
 
         jLabel10.setText("Id Cliente:");
 
+        txtDetalle.setText("Detalle");
+        txtDetalle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDetalleActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -139,11 +147,13 @@ public class ventanaFacturas extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnAgregar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnSalir))
+                        .addComponent(btnSalir)
+                        .addGap(67, 67, 67)
+                        .addComponent(txtDetalle))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(237, 237, 237)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(249, Short.MAX_VALUE))
+                .addContainerGap(117, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -175,11 +185,12 @@ public class ventanaFacturas extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBorrar)
                     .addComponent(btnAgregar)
-                    .addComponent(btnSalir))
+                    .addComponent(btnSalir)
+                    .addComponent(txtDetalle))
                 .addGap(27, 27, 27)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -189,8 +200,7 @@ public class ventanaFacturas extends javax.swing.JInternalFrame {
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         //abre ventana cargar facturas
-    
-      
+         Ventanas.centrar(getDesktopPane(), new cargarFacturas());
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
@@ -215,6 +225,17 @@ public class ventanaFacturas extends javax.swing.JInternalFrame {
       
     }//GEN-LAST:event_btnBorrarActionPerformed
 
+    private void txtDetalleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDetalleActionPerformed
+//        String idFactura;
+//        
+//        if (tblFacturas.getSelectedRow() != -1) {
+//            idFactura= tblFacturas.getValueAt(tblFacturas.getSelectedRow(), 0)+"";
+//            Ventanas.centrar(getDesktopPane(), new ventanaFacturaDetalles(idFactura,this));;
+//        } else {
+//            Box.error(this, "Seleccionar Factura");
+//        }
+    }//GEN-LAST:event_txtDetalleActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregar;
@@ -228,6 +249,7 @@ public class ventanaFacturas extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblFacturas;
     private javax.swing.JTextField txtApellido;
+    private javax.swing.JButton txtDetalle;
     private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables

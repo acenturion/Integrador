@@ -225,7 +225,7 @@ public class ventanaFacturaDetalles extends javax.swing.JInternalFrame {
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         //abre ventana cargar facturas
-    
+     Ventanas.centrar(getDesktopPane(), new cargarFacturas());
       
     }//GEN-LAST:event_btnAgregarActionPerformed
 

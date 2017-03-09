@@ -31,3 +31,30 @@ Thu Jan 19 10:38:21 ART 2017;AlejandroThalam/192.168.0.10;AlejandroThalamus;java
 Thu Jan 19 10:38:21 ART 2017;AlejandroThalam/192.168.0.10;AlejandroThalamus;java.lang.NullPointerException
 Thu Jan 19 12:37:17 ART 2017;AlejandroThalam/192.168.0.10;AlejandroThalamus;com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'integrador.clientes' doesn't exist
 Thu Jan 19 12:37:19 ART 2017;AlejandroThalam/192.168.0.10;AlejandroThalamus;java.lang.NullPointerException
+Sat Mar 04 16:46:18 ART 2017;minimal/127.0.1.1;minimal;java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: NO)
+Sat Mar 04 16:46:20 ART 2017;minimal/127.0.1.1;minimal;java.lang.NullPointerException
+Sat Mar 04 16:46:21 ART 2017;minimal/127.0.1.1;minimal;java.lang.NullPointerException
+Sat Mar 04 16:47:43 ART 2017;minimal/127.0.1.1;minimal;java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: NO)
+Sat Mar 04 16:47:45 ART 2017;minimal/127.0.1.1;minimal;java.lang.NullPointerException
+Sat Mar 04 16:47:46 ART 2017;minimal/127.0.1.1;minimal;java.lang.NullPointerException
+Sat Mar 04 16:53:11 ART 2017;minimal/127.0.1.1;minimal;java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: NO)
+Sat Mar 04 16:53:13 ART 2017;minimal/127.0.1.1;minimal;java.lang.NullPointerException
+Sat Mar 04 16:53:14 ART 2017;minimal/127.0.1.1;minimal;java.lang.NullPointerException
+Sat Mar 04 16:54:31 ART 2017;minimal/127.0.1.1;minimal;com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'integrador.clientes' doesn't exist
+Sat Mar 04 16:54:33 ART 2017;minimal/127.0.1.1;minimal;java.lang.NullPointerException
+Sat Mar 04 20:48:57 ART 2017;minimal/127.0.1.1;minimal;java.sql.SQLException: Incorrect integer value: '' for column 'codigoBarra' at row 1
+Sat Mar 04 21:26:22 ART 2017;minimal/127.0.1.1;minimal;com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'codigoBarra' in 'where clause'
+Sat Mar 04 21:34:20 ART 2017;minimal/127.0.1.1;minimal;com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'codigoBarra' in 'where clause'
+Sat Mar 04 21:34:21 ART 2017;minimal/127.0.1.1;minimal;com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'codigoBarra' in 'where clause'
+Sat Mar 04 21:34:22 ART 2017;minimal/127.0.1.1;minimal;com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'codigoBarra' in 'where clause'
+Sat Mar 04 21:34:31 ART 2017;minimal/127.0.1.1;minimal;com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'codigoBarra' in 'where clause'
+Sat Mar 04 21:34:34 ART 2017;minimal/127.0.1.1;minimal;com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'codigoBarra' in 'where clause'
+Sat Mar 04 21:34:34 ART 2017;minimal/127.0.1.1;minimal;com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'codigoBarra' in 'where clause'
+Sat Mar 04 21:35:32 ART 2017;minimal/127.0.1.1;minimal;com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column '44445asd' in 'where clause'
+Sat Mar 04 21:35:33 ART 2017;minimal/127.0.1.1;minimal;com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column '44445asd' in 'where clause'
+Sat Mar 04 21:35:34 ART 2017;minimal/127.0.1.1;minimal;com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column '44445asd' in 'where clause'
+Sat Mar 04 21:35:36 ART 2017;minimal/127.0.1.1;minimal;com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column '44445asd' in 'where clause'
+Sat Mar 04 21:35:36 ART 2017;minimal/127.0.1.1;minimal;com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column '44445asd' in 'where clause'
+Sat Mar 04 21:35:36 ART 2017;minimal/127.0.1.1;minimal;com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column '44445asd' in 'where clause'
+Sat Mar 04 21:36:47 ART 2017;minimal/127.0.1.1;minimal;java.sql.SQLException: Data truncated for column 'stock' at row 1
+Sun Mar 05 13:44:55 ART 2017;minimal/127.0.1.1;minimal;java.sql.SQLException: Incorrect integer value: '' for column 'codigoBarra' at row 1

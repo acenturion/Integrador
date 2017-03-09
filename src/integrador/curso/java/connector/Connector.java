@@ -10,7 +10,7 @@ public class Connector {
     private static String port = "3306";
     private static String db = "integrador";
     private static String user = "root";
-    private static String pass = "";
+    private static String pass = "1234";
     
     private static String url = "jdbc:"+vendor+"://"+server+":"+port+"/"+db;
     

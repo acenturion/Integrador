@@ -230,7 +230,7 @@ public class VentanaClientes extends javax.swing.JInternalFrame {
         if (validar()) {
             values = "'" + txtNombre.getText() + "', '" + txtApellido.getText() + "', '" + txtNacimiento.getText() + "', '" + txtDireccion.getText() + "', '" + txtCuit.getText() + "'";
             int x = Table.insert("clientes", fields, values);
-            Box.msg(this, "Se ha insertado " + x + " registros.");
+            Box.msg(this, "Se ha insertado " + x + " Clientes.");
         }
         cargar();
         limpiar();

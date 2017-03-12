@@ -71,6 +71,7 @@ public class ventanaFacturas extends javax.swing.JInternalFrame {
         tblFacturas = new javax.swing.JTable();
         txtId = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
+      
         btnDetalles = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -185,7 +186,7 @@ public class ventanaFacturas extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBorrar)
                     .addComponent(btnAgregar)
@@ -200,8 +201,7 @@ public class ventanaFacturas extends javax.swing.JInternalFrame {
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         //abre ventana cargar facturas
-    
-      
+         Ventanas.centrar(getDesktopPane(), new cargarFacturas());
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
@@ -239,7 +239,6 @@ public class ventanaFacturas extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_btnDetallesActionPerformed
 
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnBorrar;
@@ -253,6 +252,7 @@ public class ventanaFacturas extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblFacturas;
     private javax.swing.JTextField txtApellido;
+    private javax.swing.JButton txtDetalle;
     private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables

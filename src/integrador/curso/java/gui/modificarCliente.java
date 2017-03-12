@@ -180,7 +180,7 @@ public class modificarCliente extends javax.swing.JInternalFrame {
         Table.update(table, filtro, "direccion='"+txtDireccion.getText()+"'");
         Table.update(table, filtro, "cuit='"+txtCuit.getText()+"'");
         
-        Box.msg(this, "Se modifico un registro");
+        Box.msg(this, "Se modifico un cliente");
         vc.cargar();
         
         this.setVisible(false);

@@ -6,6 +6,7 @@ import integrador.curso.java.util.Box;
 import integrador.curso.java.util.Log;
 import integrador.curso.java.util.SwingTable;
 import integrador.curso.java.util.Ventanas;
+import integrador.curso.java.util.X;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -14,12 +15,13 @@ import java.sql.SQLException;
  * @author AlejandroThalamus
  */
 public class ventanaFacturaDetalles extends javax.swing.JInternalFrame {
-    private String idCliente;
-    private VentanaClientes vc;
+    private String numeroFactura;
+    private String letraFactura;
+    private ventanaFacturas vf;
     
-    public ventanaFacturaDetalles(String idCliente, VentanaClientes vc) {
+    public ventanaFacturaDetalles(String letraFactura, String numeroFactura, ventanaFacturas vf) {
          super(
-                "Modificar Cliente",    // Titulo
+                "Detalles de Factura",    // Titulo
                 false,                  // cambiar de tamaño
                 true,                   // Cerrar
                 false,                  // Maximizable
@@ -27,8 +29,9 @@ public class ventanaFacturaDetalles extends javax.swing.JInternalFrame {
         );
         initComponents();
         
-        this.idCliente = idCliente; 
-        this.vc = vc;
+        this.numeroFactura = numeroFactura;
+        this.letraFactura = letraFactura;
+        this.vf = vf;
         cargar();
     }
 
@@ -37,13 +40,22 @@ public class ventanaFacturaDetalles extends javax.swing.JInternalFrame {
     }
     
     public void cargar(){
-        ResultSet rs = Table.select("clientes", "id=" + idCliente);
+        ResultSet rs = Table.select("facturas", "numero=" + numeroFactura + " and letra='" + letraFactura + "'");
         try {
-               SwingTable.cargar(Table.select("facturas","idCliente="+idCliente), tblFacturaDetalles);
+               SwingTable.cargar(Table.select("facturas_detalles", "numero=" + numeroFactura + " and letra='" + letraFactura + "'"), tblFacturaDetalles);
+               double total = 0;
+               for(int i = 0; i < tblFacturaDetalles.getRowCount(); i++){
+                total += Double.parseDouble(tblFacturaDetalles.getValueAt(i, 5)+"");
+               }
+               lblTotal.setText("$"+total);
             if (rs.next()) {
-                txtNumero.setText(Integer.toString(rs.getInt("id")));
-                txtLetra.setText(rs.getString("nombre"));
-                txtFecha.setText(rs.getString("apellido"));
+                txtNumero.setText(Integer.toString(rs.getInt("numero")));
+                txtLetra.setText(rs.getString("letra"));
+                txtFecha.setText(rs.getString("fechaInicio"));
+                ResultSet crs = Table.select("clientes", "id=" + rs.getString("idCliente"));
+                if(crs.next()){
+                    txtCliente.setText(crs.getString("nombre") + " " + crs.getString("apellido"));
+                }
             }
         } catch (SQLException e) {
             Log.set(e);
@@ -122,6 +134,7 @@ public class ventanaFacturaDetalles extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblFacturaDetalles.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
         jScrollPane1.setViewportView(tblFacturaDetalles);
 
         txtNumero.setEditable(false);
@@ -130,7 +143,11 @@ public class ventanaFacturaDetalles extends javax.swing.JInternalFrame {
 
         jLabel2.setText("Cliente:");
 
+        txtCliente.setEditable(false);
+        txtCliente.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
         lblTotal.setFont(new java.awt.Font("Ubuntu Mono", 2, 18)); // NOI18N
+        lblTotal.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblTotal.setText("$(0,00)");
 
         btnEditar.setText("Editar");
@@ -144,6 +161,7 @@ public class ventanaFacturaDetalles extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -168,9 +186,6 @@ public class ventanaFacturaDetalles extends javax.swing.JInternalFrame {
                         .addContainerGap())))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(lblTotal))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -185,7 +200,10 @@ public class ventanaFacturaDetalles extends javax.swing.JInternalFrame {
                                 .addComponent(btnEditar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnSalir)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 154, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(lblTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 592, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
